@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+   <div class="form">
+        <h1> FORM</h1>
+        <br>
+        <label for="">WHAT IS YOUR NAME</label>
+        <input type="text" id="name-i" placeholder="enter name">
+        <br><br>
+        <label for="">ENGLISH MARKS</label>
+        <input type="text" id="english-i" placeholder="enter eng marks">
+        <br><br>
+        <label for="">MATHS MARKS</label>
+        <input type="text" id="maths-i" placeholder="enter maths marks">
+        <br><br>
+        <label for="">URDU MARKS</label>
+        <input type="text" id="urdu-i" placeholder="enter urdu marks">
+        <button onclick="myfun()">CALCULATE</button>
+    </div>
+    <div class="result">
+        <h1>MARKSHEET</h1>
+        <table>
+            <tr>
+                <th>STUDENT NAME</th>
+                <td id="ni"></td>
+            </tr>
+            <tr>
+                <th>ENGLISH MARKS</th>
+                <td id="ei"></td>
+            </tr>
+            <tr>
+                <th>MATHS MARKS</th>
+                <td id="mi"></td>
+            </tr>
+            <tr>
+                <th>URDU MARKS</th>
+                <td id="ui"></td>
+            </tr>
+            <tr>
+                <th class="percentage">PERCENTAGE</th>
+                <td class="percentage" id="pi"></td>
+            </tr>
+        </table>
+    </div>
+    <button onclick="downloadss()">download </button>
+ 
+    <script>
+   
+
+       
+            function myfun() {
+
+                var name = document.getElementById("name-i").value;
+            var english = parseFloat(document.getElementById("english-i").value);
+            var maths = parseFloat(document.getElementById("maths-i").value);
+            var urdu = parseFloat(document.getElementById("urdu-i").value);
+
+            var namei = document.getElementById("ni");
+            var ei = document.getElementById("ei");
+            var mi = document.getElementById("mi");
+            var ui = document.getElementById("ui");
+            var pi = document.getElementById("pi");
+
+            namei.textContent = name;
+            ei.textContent = english;
+            mi.textContent = maths;
+            ui.textContent = urdu;
+
+            var totalMarks = english + maths + urdu;
+            var percentage = (totalMarks / 300) * 100;
+            pi.textContent = percentage.toFixed(2) + "%";
+        }
+      
+    
+        
+    
+    </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer">    function downloadss(){
+        const element = document.body;
+        html2pdf()
+        .from(element)
+        .save("output.pdf");
+              }</script>
+</body>
+
+</html>
